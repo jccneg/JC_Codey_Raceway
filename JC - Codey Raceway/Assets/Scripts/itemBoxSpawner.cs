@@ -8,14 +8,22 @@ public class itemBoxSpawner : MonoBehaviour
 
     public int numberOfBoxes;
 
+    public int modifyXPosition;
+    public int modifyZPosition;
+
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < numberOfBoxes; i++)
         {
-            Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-            transform.position = spawnPosition;
-            GameObject itemBoxClone = Instantiate(itemBox, transform.position, transform.rotation);
+            GameObject itemBoxClone = Instantiate(
+                itemBox, 
+                new Vector3(
+                    transform.position.x + modifyXPosition * i, 
+                    transform.position.y,
+                    transform.position.z + modifyZPosition * i
+                    ), 
+                transform.rotation);
         }
     }
 
