@@ -15,6 +15,7 @@ public class SelectRandomPowerup : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && chosenPowerup != null)
         {
             Instantiate(chosenPowerup, spawnPos.transform.position, transform.rotation);
+            chosenPowerup = null;
         }
     }
 
@@ -29,7 +30,7 @@ public class SelectRandomPowerup : MonoBehaviour
     public void selectPowerup()
     {
         Debug.Log("thing");
-        randomNumberInList = Random.Range(0, powerupList.Count-1);
+        randomNumberInList = Random.Range(0, powerupList.Count);
         chosenPowerup = powerupList[randomNumberInList];
     }
 }
