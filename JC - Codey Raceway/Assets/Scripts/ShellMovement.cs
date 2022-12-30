@@ -15,8 +15,12 @@ public class ShellMovement : MonoBehaviour
         if (other.gameObject.tag == "Obstacle")
         {
             Destroy(other.gameObject);
-            Destroy(gameObject);
+            Invoke("destroyGameObject", 2.0f);
         }
     }
 
+    private void destroyGameObject()
+    {
+        Destroy(gameObject);
+    }
 }

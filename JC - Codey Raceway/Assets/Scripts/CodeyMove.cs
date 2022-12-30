@@ -6,7 +6,7 @@ public class CodeyMove : MonoBehaviour
     public float Speed = 15f;
     Animator anim;
     public bool running = false;
-    public bool canMove = true;
+    public bool canMove = false;
     public Vector3 move;
     public float _rotationSpeed = 50f;
     private Rigidbody rb;

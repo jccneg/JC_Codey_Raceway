@@ -12,12 +12,16 @@ public class TimersCountdown : MonoBehaviour
     public float totalCountdownTime;
 
     public CodeyMove cm;
-    float Speed;
+    public float Speed;
+
+    public CodeyMove cs;
+    public bool canMove;
 
     // Start is called before the first frame update
     void Start()
     {
-        Speed = cm.Speed;
+        cm.Speed = Speed;
+        cs.canMove = canMove;
     }
 
     // Update is called once per frame
@@ -33,14 +37,15 @@ public class TimersCountdown : MonoBehaviour
         {
             totalCountdownTime -= Time.deltaTime;
             startCountdown.text = Mathf.Round(totalCountdownTime).ToString();
-            Speed = 0f;
+            cs.Speed = 0f;
         }
 
         if (totalCountdownTime <= 0)
         {
             startCountdown.text = "";
             totalLapTime -= Time.deltaTime; 
-            Speed = 40f;
+            cm.Speed = 4000f;
+            cs.canMove = true;
         }
 
         if (totalLapTime < 0)
