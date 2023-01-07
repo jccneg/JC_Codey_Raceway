@@ -1327,7 +1327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253084819}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 154, y: -10.7, z: 59.54}
+  m_LocalPosition: {x: 154, y: -10.7, z: 56.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1375,7 +1375,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 265817845}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 190.9, y: -10.7, z: 111.8}
+  m_LocalPosition: {x: 190.9, y: -10.7, z: 113.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4158,7 +4158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -4873,7 +4872,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 5.9310884e-10, y: 0.994029, z: -0.10911677, w: 0.000000005403087}
+  m_LocalRotation: {x: 2.6062985e-10, y: 0.994029, z: -0.10911678, w: 0.000000002374278}
   m_LocalPosition: {x: -6.1, y: 25.2, z: 12.200001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5260,7 +5259,7 @@ GameObject:
   - component: {fileID: 1187581306}
   m_Layer: 0
   m_Name: Finish Line
-  m_TagString: Untagged
+  m_TagString: FinishLine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6054,7 +6053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5758490611783279901, guid: b3b632acf26e04817952ec52895565e3, type: 3}
       propertyPath: Speed
-      value: 4000
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5758490611783279901, guid: b3b632acf26e04817952ec52895565e3, type: 3}
       propertyPath: canMove
@@ -6064,7 +6063,8 @@ PrefabInstance:
       propertyPath: running
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1585629381867027388, guid: b3b632acf26e04817952ec52895565e3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b3b632acf26e04817952ec52895565e3, type: 3}
 --- !u!1001 &1269940097
 PrefabInstance:
@@ -6510,7 +6510,7 @@ GameObject:
   - component: {fileID: 1343944889}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -7531,7 +7531,7 @@ MeshCollider:
   m_GameObject: {fileID: 1512256694}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -7551,6 +7551,7 @@ MonoBehaviour:
   powerupList:
   - {fileID: 550550972619622667, guid: 1f6424829fc38324481c966a4cd6cecf, type: 3}
   - {fileID: 550550972619622667, guid: 60740397b0a187641a36e2d88aa3f2f4, type: 3}
+  - {fileID: 550550972619622667, guid: 935256749c251e542a6586b2f894474e, type: 3}
   randomNumberInList: 0
   chosenPowerup: {fileID: 0}
   spawnPos: {fileID: 1756458745}
@@ -7612,6 +7613,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc3149b76bf3e4b8d98c2e9e1c53e668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1512256706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512256694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab7cc0aa5c38ee49a7ab6bb332b048b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!143 &1512256707
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512256694}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 4
+  m_Radius: 1
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1001 &1519647337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9723,7 +9754,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080488484}
-  m_LocalRotation: {x: 5.9310884e-10, y: 0.994029, z: -0.10911677, w: 0.000000005403087}
+  m_LocalRotation: {x: 2.6062985e-10, y: 0.994029, z: -0.10911678, w: 0.000000002374278}
   m_LocalPosition: {x: -6.1, y: 25.2, z: 12.200001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

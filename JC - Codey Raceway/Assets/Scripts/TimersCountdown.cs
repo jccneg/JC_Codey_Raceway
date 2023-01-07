@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimersCountdown : MonoBehaviour
 {
@@ -20,8 +21,8 @@ public class TimersCountdown : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cm.Speed = Speed;
-        cs.canMove = canMove;
+       // cm.Speed = Speed;
+        //cs.canMove = canMove;
     }
 
     // Update is called once per frame
@@ -37,20 +38,21 @@ public class TimersCountdown : MonoBehaviour
         {
             totalCountdownTime -= Time.deltaTime;
             startCountdown.text = Mathf.Round(totalCountdownTime).ToString();
-            cs.Speed = 0f;
+            //cs.Speed = 0f;
+            cs.canMove = false;
         }
 
         if (totalCountdownTime <= 0)
         {
             startCountdown.text = "";
             totalLapTime -= Time.deltaTime; 
-            cm.Speed = 4000f;
+            //cm.Speed = 40f;
             cs.canMove = true;
         }
 
         if (totalLapTime < 0)
         {
-            Debug.Log("Time is Up!");
+            SceneManager.LoadScene(2);
         }
     }
 }

@@ -9,12 +9,11 @@ public class CodeyMove : MonoBehaviour
     public bool canMove = false;
     public Vector3 move;
     public float _rotationSpeed = 50f;
-    private Rigidbody rb;
+    CharacterController cc;
     void Start()
     {
         anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
-        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        cc = GetComponent<CharacterController>();
     }
     void Update()
     {
@@ -25,9 +24,9 @@ public class CodeyMove : MonoBehaviour
             float vertical = Input.GetAxis("Vertical");
             float horizontal = Input.GetAxis("Horizontal");            
             Vector3 rotation = new Vector3(0, horizontal * _rotationSpeed * Time.deltaTime, 0);
-            move = transform.forward * Speed * Time.deltaTime * vertical;
+            move = transform.forward * vertical;
             transform.Rotate(rotation);
-            rb.AddForce(move, ForceMode.VelocityChange);
+            cc.Move(move.normalized * Speed * Time.deltaTime);
 
             anim.SetBool("isRunning", move != Vector3.zero);
         }

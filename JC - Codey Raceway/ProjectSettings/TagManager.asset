@@ -7,6 +7,8 @@ TagManager:
   - checkpoint
   - itemBoxes
   - Obstacle
+  - Terrain
+  - FinishLine
   layers:
   - Default
   - TransparentFX
