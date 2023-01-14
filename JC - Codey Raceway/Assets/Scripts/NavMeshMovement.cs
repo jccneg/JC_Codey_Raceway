@@ -19,18 +19,7 @@ public class NavMeshMovement : MonoBehaviour
     void Update()
     {
         //agent = GetComponent<NavMeshAgent>();
-        for(int i = 0; i < obstacles.Length; i++)
-        {
-            float dist = Vector3.Distance(agent.transform.position, obstacles[i].transform.position);
-            if(dist < closestObstacle)
-            {
-                closestObstacle = dist;
-                target = obstacles[i];
-            }
-        }
-        Invoke("destroyGameObject", 8.0f);
-        //target = GameObject.FindGameObjectWithTag("Obstacle");
-        agent.destination = target.transform.position;
+        SelectTarget();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -45,5 +34,21 @@ public class NavMeshMovement : MonoBehaviour
     private void destroyGameObject()
     {
         Destroy(gameObject);
+    }
+
+    private void SelectTarget()
+    {
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            float dist = Vector3.Distance(agent.transform.position, obstacles[i].transform.position);
+            if (dist < closestObstacle)
+            {
+                closestObstacle = dist;
+                target = obstacles[i];
+            }
+        }
+        Invoke("destroyGameObject", 8.0f);
+        //target = GameObject.FindGameObjectWithTag("Obstacle");
+        agent.destination = target.transform.position;
     }
 }

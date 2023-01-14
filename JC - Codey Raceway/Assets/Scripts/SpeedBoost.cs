@@ -24,7 +24,6 @@ public class SpeedBoost : MonoBehaviour
 
     IEnumerator speedTime()
     {
-        Debug.Log("a");
         cm.Speed = Speed;
         yield return new WaitForSeconds(3f);
         cm.Speed = baseSpeed;

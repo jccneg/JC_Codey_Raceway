@@ -5,19 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Respawn : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnCollisionEnter(Collision other)
+    private void OnControllerColliderHit(ControllerColliderHit other)
     {
         if (other.gameObject.tag == "Terrain")
         {

@@ -15,10 +15,6 @@ public class TriggerFinishLine : MonoBehaviour
             {
                 SceneManager.LoadScene(1);
             }
-            else
-            {
-                print("Cheater!");
-            }
         }
     }
 }

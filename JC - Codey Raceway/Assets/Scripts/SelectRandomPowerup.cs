@@ -29,7 +29,6 @@ public class SelectRandomPowerup : MonoBehaviour
 
     public void selectPowerup()
     {
-        Debug.Log("thing");
         randomNumberInList = Random.Range(0, powerupList.Count);
         chosenPowerup = powerupList[randomNumberInList];
     }
